@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple checkboxes</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 25px;
+      font-family: sans-serif;
+    }
+    .option {
+      display: block;
+      margin-bottom: .25em;
+    }
+
+    /* Check */
+
+    .check {
+      padding-left: 1.2em;
+    }
+
+    .check__input {
+      /**
+        'position: absolute' used for removing space in front of label text.
+       */
+      position: absolute;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    .check__box {
+      /**
+        'position: absolute' used for checkbox doesn't have influence on height of the text.
+       */
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      margin-left: -1.2em;
+      background: url(images/off.svg);
+    }
+    
+    /* Anchoring styles */
+
+    /* Checked */
+    .check__input:checked + .check__box {
+      background: url(images/on.svg);
+    }
+
+    /* Focused */
+    .check__input:focus + .check__box {
+      background: url(images/off-focused.svg);
+    }
+
+    /* Focused and Checked */
+    .check__input:checked:focus + .check__box {
+      background: url(images/on-focused.svg);
+    }
+
+    /* Disabled */
+    .check__input:disabled + .check__box {
+      background: url(images/off-disabled.svg);
+    }
+
+    /* Disabled and Checked */
+    .check__input:checked:disabled + .check__box {
+      background: url(images/on-disabled.svg);
+    }
+    
+  </style>
+</head>
+<body>
+<!--
+  No need to use atribute 'for' when input nested in label.
+  Main issue is not to hide default browser checkbox with 'display: none;'.
+  In this simple case I used 'appearance: none' with vendor prefixes.
+
+  The reason that I didnt completely hide checkbox, except accessibility, is that
+  styles now could be anchored to this checkbox and used to control states of checkbox.
+
+  There is also an issue with this method.
+  The issue is that every checkbox state image is external.
+  That means that if user have slow connection and checked checkbox - checked state image can be lost
+  or stack somewhere in between client and server.
+-->
+<label class="check option">
+  <input class="check__input" type="checkbox">
+  <span class="check__box"></span>
+  First
+</label>
+
+<label class="check option">
+  <input class="check__input" type="checkbox" checked>
+  <span class="check__box"></span>
+  Second
+</label>
+
+<label class="check option">
+  <input class="check__input" type="checkbox" disabled>
+  <span class="check__box"></span>
+  Third
+</label>
+
+<label class="check option">
+  <input class="check__input" type="checkbox" checked disabled>
+  <span class="check__box"></span>
+  Fourth
+</label>
+</body>
+</html>
