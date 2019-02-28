@@ -15,7 +15,7 @@
 
 <br>
 The reason that I didnt completely hide checkbox, except accessibility, is that
-  styles now could be anchored to this checkbox and used to control states of checkbox.
+styles now could be anchored to this checkbox and used to control states of checkbox.
 <br>
 
 There is also an issue with this method.
@@ -24,6 +24,7 @@ That means that if user have slow connection and checked checkbox - checked stat
 or stack somewhere in between client and server.
 
 <br> 
+
 To inline SVG into CSS I used [this awesome website](https://yoksel.github.io/url-encoder/ru/).
 <br>
 
