@@ -37,26 +37,26 @@ Checkboxes stylings handled with combination of default checkbox state folowed b
   .check__input:checked + .check__box {
     background: url(images/on.svg);
   }
-  /* Focused */
+/* Focused */
   .check__input:focus + .check__box {
     background: url(images/off-focused.svg);
-  }
-  /* Focused and Checked */
+  } 
+/* Focused and Checked */
   .check__input:checked:focus + .check__box {
     background: url(images/on-focused.svg);
   }
-  /* Disabled */
+/* Disabled */
   .check__input:disabled + .check__box {
     background: url(images/off-disabled.svg);
   }
-  /* Disabled and Checked */
+/* Disabled and Checked */
   .check__input:checked:disabled + .check__box {
     background: url(images/on-disabled.svg);
   }
 ```
 
 
-The reason that I didnt completely hide checkbox, except accessibility, is that
+The reason that I didn't completely hide checkbox, except accessibility, is that
 styles now could be anchored to this checkbox and used to control states of checkbox.
 <br>
 
@@ -64,10 +64,23 @@ There is also an issue with this method.
 The issue is that every checkbox state image is external.
 That means that if user have slow connection and checked checkbox - checked state image can be lost
 or stack somewhere in between client and server.
-
 <br> 
 
+### **2. Inlined images approach** ###
 To inline SVG into CSS I used [this awesome website](https://yoksel.github.io/url-encoder/ru/).
 <br>
+
+So instead
+```css
+.check__input:checked:disabled + .check__box {
+    background: url(images/on-disabled.svg);
+}
+```
+We have now
+```css
+.check__input:checked:disabled + .check__box {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://   www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='2' y='2' width='16' height='16' fill='%239B9B9B' rx='3'/%3E%3Cpolyline fill='none' stroke='%23FFF' stroke-width='3' points='5 9 9 13 15 6'/%3E%3C/svg%3E");
+}
+```
 
 CSS styled checkboxes will work when you have relatively simple graphics only. Otherwise it will be an overhead.
