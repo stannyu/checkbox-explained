@@ -1,5 +1,9 @@
-### **Custom checkboxes** ###
+## **Custom checkboxes** ##
 
+
+### **1. Simple approach** ###
+
+Basic markup:
 ```javascript 
 <label class="check option">
   <input class="check__input" type="checkbox">
@@ -7,6 +11,17 @@
   First
 </label>
 ```
+
+Default checkbox hidden by: 
+```css 
+.check__input {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+```
+```position: absolute``` used for removing space in front of label text.
 
 #### Main principles ####
 - No need to use atribute 'for' when input nested in label.<br>
