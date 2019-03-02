@@ -34,25 +34,25 @@ Checkboxes stylings handled with combination of default checkbox state folowed b
 
 ```css
 /* Checked */
-  .check__input:checked + .check__box {
-    background: url(images/on.svg);
-  }
+ .check__input:checked + .check__box {
+   background: url(images/on.svg);
+ }
 /* Focused */
-  .check__input:focus + .check__box {
-    background: url(images/off-focused.svg);
-  } 
+ .check__input:focus + .check__box {
+   background: url(images/off-focused.svg);
+ } 
 /* Focused and Checked */
-  .check__input:checked:focus + .check__box {
-    background: url(images/on-focused.svg);
-  }
+ .check__input:checked:focus + .check__box {
+   background: url(images/on-focused.svg);
+ }
 /* Disabled */
-  .check__input:disabled + .check__box {
-    background: url(images/off-disabled.svg);
-  }
+ .check__input:disabled + .check__box {
+   background: url(images/off-disabled.svg);
+ }
 /* Disabled and Checked */
-  .check__input:checked:disabled + .check__box {
-    background: url(images/on-disabled.svg);
-  }
+ .check__input:checked:disabled + .check__box {
+   background: url(images/on-disabled.svg);
+ }
 ```
 
 
