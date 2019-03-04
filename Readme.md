@@ -125,3 +125,40 @@ Disabled and Checked - Disabled share the same idea.
   background-color: #9B9B9B;
 }
 ```
+
+### **4. Visually Hidden approach** ###
+
+Styles with ```appearance``` causes problems in IE11.<br>
+In some libraries this refers to special class 'visually-hidden' (not visibility-hidden).
+        This is the most bullet proof and browsers compatable way to hide element and remain it visible
+        for ScreenReaders.
+        just like this:
+
+```css
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+```
+
+It is a bit simpler in our case:
+```css
+.check__input {
+  /**
+  'position: absolute' used for removing space in front of label text.
+  */
+  position: absolute;
+  /* 1px is for Screen Readers*/
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  /* clip to make sure that our input is hidden*/
+  clip: rect(0 0 0 0);
+}
+```
