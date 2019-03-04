@@ -84,3 +84,44 @@ We have now
 ```
 
 CSS styled checkboxes will work when you have relatively simple graphics only. Otherwise it will be an overhead.
+
+### **3. Styled with CSS** ###
+
+As graphics is simple in this case we can handle checkboxes stylings with css.
+
+```.check__box``` styles changed just to style element the same way as our SVG graphics.
+
+The mosty important point is that now we can style elements by background color and check.svg icon:
+
+```css
+.check__input:checked + .check__box {
+    background-color: #4A90E2;
+    background-image: url(images/check.svg);
+  }
+```
+
+To handle 'Focus' state we can apply box-shadow property with two shadows:
+
+```css
+.check__input:focus + .check__box {
+  box-shadow:
+    0 0 0 0.1em #4A90E2,
+    0 0 0 0.2em #7ED321;
+}
+```
+In this case we do not need to style focused and checked state as we combining states with styles. 
+
+So this definition 
+``` .check__input:checked:focus + .check__box``` is not necessary any more!
+
+Disabled and Checked - Disabled share the same idea.
+```css
+/* Disabled */
+.check__input:disabled + .check__box {
+  box-shadow: 0 0 0 0.1em #9B9B9B;
+}
+/* Disabled and Checked */
+.check__input:checked:disabled + .check__box {
+  background-color: #9B9B9B;
+}
+```
